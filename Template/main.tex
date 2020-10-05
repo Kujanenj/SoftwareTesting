@@ -65,7 +65,7 @@
 \section{Definitions}
 
 \section{Introduction}
-The purpose of this document is to describe testing for an application which is used to sell food products.
+The purpose of this document is to describe testing for an application which is used to sell food products. 
 \section{Tools}
 
     \subsection{Jest}
@@ -91,8 +91,8 @@ The following table shows what file is being tested
     2. capitalize.js & all characters capitalized              & Product descriptions must start with an upper case letter  & TESTRING                                       & Teststring               & -             \\ \hline
     3. compact.js    & large item\_id list                     & Tests large item\_id list and deletes unnecessary values   & {[}0, 1, '', 5, 6{]}                           & {[}0,1,5,6{]}            & -             \\ \hline
     4. filter.js     & filter products                         & Filter invalid product id's                                & {[}1,2,3,4,5,-5,-3{]}                          & {[}1,2,3,4,5{]}          & -             \\ \hline
-    5. map.js        & similar actions for array nodes         & Multiple products need to make same actions                & ({[}product1, product2{]}, capitalize)         & {[}Product1, Product2{]} & -             \\ \hline
-    6. slice.js      & remove certain amount from product list & Easier to delete multiple products                         & products = {[}1, 2, 3, 4{]} slice(products, 2) & {[}3, 4{]}               & -             \\ \hline
+    5. map.js        & similar actions for array nodes         & Multiple products need to make same actions                & {[}product1, product2{]}, capitalize         & {[}Product1, Product2{]} & -             \\ \hline
+    6. slice.js      & remove certain amount from product list & Easier to delete multiple products                         & {[}1, 2, 3, 4{]} , 2 & {[}3, 4{]}               & -             \\ \hline
     7. toNumber.js   & modify string to number                 & large string list to numbers                               & '3,2'                                          & 3,2                      & -             \\ \hline
     8. toString.js   & multiple products into a single string  & Seperate products from list to a single string             & {[}p1, p2, p3, p4{]}                           & 'p1, p2, p3, p4'         & -             \\ \hline
     9. endWith.js    & Valid input                             & String validation                                          & "abc","b"                                      & False                    & -             \\ \hline
