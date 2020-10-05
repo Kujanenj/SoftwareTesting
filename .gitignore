@@ -1,0 +1,30 @@
+# Do not inlcude LaTeX build files in git
+*.synctex.gz
+*.toc
+*.out
+*.log
+*.aux
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.nav
+*.snm
+*.lot
+*.lof
+*.bcf
+*.run.xml
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+
+# No binaries in git 
+
+
+# No auto tags to git
+tags
+
