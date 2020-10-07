@@ -1,0 +1,165 @@
+\documentclass[a4paper, 12pt]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+
+%% Sets page size and margins
+\setlength{\parindent}{0pt}
+
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{multirow}
+
+\title{Fysiikan toiden selostuspohja}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+ 
+        \textbf{HEADING}
+ 
+        \vspace{0.5cm}
+       
+             
+        \vspace{1.5cm}
+ 
+        \textbf{Jussi Kujanen 273161}
+        \textbf{Veikko Vittunen xxxxxx}
+ 
+        \vfill
+             
+    
+             
+        \vspace{0.8cm}
+      
+   
+             
+       
+        Tampere University\\
+       Päivät tänne
+             
+    \end{center}
+ \end{titlepage} 
+
+
+
+% Sisollysluettelon luominen
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+% Varsinainen selostus alkaa...
+\newpage
+\clearpage
+\pagenumbering{arabic} 
+
+\section{Definitions}
+
+\section{Introduction}
+The purpose of this document is to describe testing for an application which is used to sell food products.
+\section{Tools}
+
+    \subsection{Jest}
+    Jest was chosen as the testframework, since it works well with React, and we both have had some experience with Jest beforehand.
+    \subsection{TravisCI}
+
+\section{Test cases}
+With the large amount of functions present, prioritisation is a must.
+Based on the description of the use case for the library, we can focus mostly on functions that handle string manipulation and validation,
+such as 'capitalize','map' and 'isEmpty'.
+\\
+ A complete list of test cases can be found in the following chapter.
+
+
+\subsection{Unit testing}
+
+The following table shows what file is being tested, the test case name, why the test is ran, aswell as the 
+input, expeted output and the actual result.
+\\
+The test case can be considered succesfull when the output matches the expected result.
+\begin{table}[h]
+    \scalebox{0.9}{
+    \begin{tabular}{|p{3cm}|p{2cm}|p{4cm}|p{2cm}|p{2cm}|p{2cm}|}    \hline
+        Target file      & Test name                  & Purpose of test                                           & Test data & Expected result & Actual result \\ \hline
+        1. add.js        & limit values               & Product price uses this function                          & 0 + 5     & 5               & -             \\ \hline
+        2. capitalize.js & all characters capitalized & Product descriptions must start with an upper case letter & TESTRING  & Teststring      & -             \\ \hline
+        3. compact.js    & large item\_id list        & Tests large item\_id list and                             &           &                 &               \\ \hline
+                         &                            &                                                           &           &                 &               \\ \hline
+                         &                            &                                                           &           &                 &               \\ \hline
+                         &                            &                                                           &           &                 &               \\ \hline
+    \end{tabular}}
+\end{table}
+
+
+\begin{table}[]
+\begin{tabular}{llllll}
+\hline
+Target file}      & Test name}                  & Purpose of test}                                           & Test data}         & Expected result} & Actual result} \\ \hline
+1. add.js}        & limit values}               & Product price uses this function}                          & 0 + 5}             & 5}               & -}             \\ \hline
+2. capitalize.js} & all characters capitalized} & Product descriptions must start with an upper case letter} & TESTRING}          & Teststring}      & -}             \\ \hline
+3. compact.js}    & large item\_id list}        & Tests large item\_id list and}                             & }                  & }                & }              \\
+endWith.js                             & Valid input                                     & String validation                                                              & "abc","b"                              & False                                & -                                  \\
+endWith.js                             & Invalid input                                   & String validation - check for crash                                            & abc,b                                  & ????                                 & -                                  \\
+get.js                                 & Non  existent field                             & Check for crash                                                                & \{a\},'a.b'                            & ???                                  & -                                  \\
+get.js                                 & valid Input                                     & For several keywords, might need to check every word                           & \{a:b:1\},'a.b'                        & 1                                    & -                                  \\
+isEmpty.js                             & Null                                            & Validate empty inputs                                                          & null                                   & False                                & -                                  \\ \hline
+reduce.js}        & Sum of an array}            & Need to add prices of items in cart}                       & {[}1,2,3{]},add,0} & 6}               & -}            
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Test cases}
+
+\subsection{Integration testing}
+
+\subsubsection{Test cases}
+
+\section{References}
+
+  
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+           
+            
+            
+            
+            
+            % Kirjallisuusviitteet ladataan referenssit.bib tiedostosta ja lohdeluettelo luodaan.
+            
+            \bibliographystyle{}
+            \bibliography{}
+            
+            % Alkuperoinen mittauspoytokirja liitteeksi
+            
+            \section*{Liitteet}
+            
+  
+            
+            
+            
+            \end{document}
