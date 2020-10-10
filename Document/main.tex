@@ -89,11 +89,13 @@ Below this section is a description of all the tools that will be used for this 
     A tutorial on how to use Coveralls can be found here.\cite{coverallsTutorial}.
 
 \section{Test cases}
+This chapter will cover unit and integration testing.
 
 With the large amount of functions present, prioritisation is a must. The functions are rated on a scale of 1 to 5, 5 having the highest priority.
 Based on the description of the use case for the library, we can focus mostly on functions that handle string manipulation and validation,
 such as 'capitalize','map' and 'isEmpty'. This is because the part of the frontend to be tested  is mostly based on handling user input.
 \\\\
+
 Functions that are not essential for string manipulation have lower priority, and are not tested.
 A complete list\ref{priorityTable} of module prioreties and reasoning can be found as an attachment to this document.
 
@@ -103,7 +105,7 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
     their inputs, outputs and expected results. 
     \\\\
     Each test is considered 'passed' once the output matches the expected output. 
-    If bugs or errors are encountered, the corresponding table has a note of it.
+    If bugs or errors are encountered, the corresponding section has a note of it.
     \newpage
 
         \subsubsection{Test cases}
@@ -177,7 +179,7 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
            \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
                 \hline
                 Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & modify string to number 			& '3,2'     					& 3,2               				& -             		& No     \\ \hline
+                1   & modify string to number 			& '3.2'     					& 3.2               				& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
     
@@ -238,8 +240,22 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
     \newpage
 
     \subsection{Integration testing}
+        Integration tests are also run using jest. In these tests, the modules tested in unit testing phase are integrated, and tested together.
+        \\
+        The formatting of the tables will be the same as in unit testing. 
+        \subsubsection{Test cases}  
+        Here can be found all the integration test cases.
 
-        \subsubsection{Test cases}
+
+
+        \begin{table}[h]
+            \begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
+            \hline
+             Test case            & Test data                           & Expected result & Actual result & Passed \\ \hline
+             Add strings          & add(toNumber(2), toNumber(5))        & 7               & -             & No     \\ \hline
+            Add bad array values & reduce( compact( {[}1,2,"{]}),add,0)) & 3               & -             & No     \\ \hline
+            \end{tabular}
+            \end{table}
 
 \section{Definitions}
 
