@@ -19,6 +19,8 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{multirow}
 
+\usepackage{datetime}
+
 \title{Fysiikan toiden selostuspohja}
 
 \begin{document}
@@ -27,7 +29,9 @@
     \begin{center}
         \vspace*{1cm}
  
-        \textbf{HEADING}
+        \textbf{COMP.SE.200-2020-2021-1 Software Testing}
+        \\
+        \textbf{Test plan}
  
         \vspace{0.5cm}
        
@@ -35,12 +39,13 @@
         \vspace{1.5cm}
 
         \textbf{Jussi Kujanen 273161}
+        \\
         \textbf{Veikko Hiltunen 283475}
  
         \vfill
         \vspace{0.8cm}
         Tampere University\\
-        Päivät tänne
+        October 10th, 2020
     \end{center}
  \end{titlepage} 
 
@@ -106,10 +111,12 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
     \\\\
     Each test is considered 'passed' once the output matches the expected output. 
     If bugs or errors are encountered, the corresponding section has a note of it.
+    \\\\
+    The functions to be tested were selected according to their importance to the program. Almost all functions that were in no way related to the operation of the program have been excluded from testing. These tests and test cases may still change during the testing itself and not all test methods may be actually implemented. 
     \newpage
 
         \subsubsection{Test cases}
-        Here can be found all the test cases in a listed form, divided into sections based on the module tested.
+        Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases will be written even if they are not listed in these tables. 
         \\
         \\
         \textbf{Function:} add.js
@@ -152,6 +159,8 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
                 1   & filter products 					& {[}1,2,3,4,5,-5,-3{]}     	& {[}1,2,3,4,5{]}               	& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
+
+\newpage 
     
         \textbf{Function:} map.js
         
@@ -162,7 +171,6 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
                 1   & similar actions for array nodes 	& {[}product1, product2{]}, capitalize     		& {[}Product1, Product2{]}          & -             		& No     \\ \hline
             \end{tabular}
         \end{table}
-   \newpage 
         \textbf{Function:} slice.js
         
         \begin{table}[h!]
@@ -204,6 +212,8 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
             \end{tabular}
         \end{table}
     
+\newpage
+    
         \textbf{Function:} get.js
         
         \begin{table}[h!]
@@ -214,8 +224,6 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
                 2   & valid Input 						& \{a:b:1\},'a.b'     			& ???               				& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
-    
-\newpage
 
         \textbf{Function:} isEmpty.js
         
@@ -236,19 +244,15 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
                 1   & Sum of an array 					& {[}1,2,3{]},add,0     		& 6                					& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
-    
-    \newpage
 
     \subsection{Integration testing}
-        Integration tests are also run using jest. In these tests, the modules tested in unit testing phase are integrated, and tested together.
-        \\
-        The formatting of the tables will be the same as in unit testing. 
+        Integration tests are also run using jest, but also with TravisCI, and Coveralls. In these tests, the modules tested in unit testing phase are integrated, and tested together. Each time a new commit is made to the master branch, Travis will run all tests and sends a coverage report to Coveralls. The formatting of the tables will be the same as in unit testing. 
         \subsubsection{Test cases}  
         Here can be found all the integration test cases.
 
 
 
-        \begin{table}[h]
+        \begin{table}[h!]
             \begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
             \hline
              Test case            & Test data                           & Expected result & Actual result & Passed \\ \hline
@@ -256,12 +260,13 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
             Add bad array values & reduce( compact( {[}1,2,"{]}),add,0)) & 3               & -             & No     \\ \hline
             \end{tabular}
             \end{table}
+        
+ 
+\newpage
 
 \section{Definitions}
 
-\begin{definition}
-    This is a definition
-\end{definition}
+No definitions. 
 
 % Kirjallisuusviitteet ladataan referenssit.bib tiedostosta ja lohdeluettelo luodaan.
 
@@ -271,6 +276,8 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
 % Alkuperoinen mittauspoytokirja liitteeksi
 
 \section*{Attacments}
+
+Priority table \ref{priorityTable}
 
 \begin{table}[h]\caption{Priority}\label{priorityTable}
     \centering
