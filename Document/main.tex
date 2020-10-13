@@ -74,7 +74,7 @@ Below this section is a description of all the tools that will be used for this 
     \subsection{Jest}
 
     Jest\cite{Jest} was chosen as the testframework, since it works well with React, and we both have had some experience with Jest beforehand.
-    Jes is used to run the test cases described in this document. A tutorial explaining how to use jest can be found here.\cite{JestTutorial}
+    Jest is used to run the test cases described in this document. A tutorial explaining how to use jest can be found here.\cite{JestTutorial}
 
     \subsection{TravisCI}
     
@@ -91,7 +91,7 @@ Below this section is a description of all the tools that will be used for this 
     \subsection{Coveralls}
 
     Coveralls\cite{coveralls} is used to track test coverage. Coveralls was chosen for this task, since it is required by the course, and it is open source. 
-    A tutorial on how to use Coveralls can be found here.\cite{coverallsTutorial}.
+    A tutorial on how to use Coveralls can be found here\cite{coverallsTutorial}.
 
 \section{Test cases}
 This chapter will cover unit and integration testing.
@@ -102,7 +102,7 @@ such as 'capitalize','map' and 'isEmpty'. This is because the part of the fronte
 \\\\
 
 Functions that are not essential for string manipulation have lower priority, and are not tested.
-A complete list\ref{priorityTable} of module prioreties and reasoning can be found as an attachment to this document.
+A complete list of module prioreties and reasoning can be found as an attachment to this document. \ref{priorityTable}
 
 
     \subsection{Unit testing}
@@ -116,7 +116,7 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
     \newpage
 
         \subsubsection{Test cases}
-        Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases will be written even if they are not listed in these tables. 
+        Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases can be written even if they are not listed in these tables. 
         \\
         \\
         \textbf{Function:} add.js
@@ -231,7 +231,7 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
            \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
                 \hline
                 Num & Test case         						& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Null 										& null     						& False                				& -             		& No     \\ \hline
+                1   & Null 										& null     						& True                				& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
     
@@ -244,7 +244,7 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
                 1   & Sum of an array 					& {[}1,2,3{]},add,0     		& 6                					& -             		& No     \\ \hline
             \end{tabular}
         \end{table}
-
+\newpage
     \subsection{Integration testing}
         Integration tests are also run using jest, but also with TravisCI, and Coveralls. In these tests, the modules tested in unit testing phase are integrated, and tested together. Each time a new commit is made to the master branch, Travis will run all tests and sends a coverage report to Coveralls. The formatting of the tables will be the same as in unit testing. 
         \subsubsection{Test cases}  
@@ -252,21 +252,20 @@ A complete list\ref{priorityTable} of module prioreties and reasoning can be fou
 
 
 
-        \begin{table}[h!]
-            \begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
-            \hline
-             Test case            & Test data                           & Expected result & Actual result & Passed \\ \hline
-             Add strings          & add(toNumber(2), toNumber(5))        & 7               & -             & No     \\ \hline
-            Add bad array values & reduce( compact( {[}1,2,"{]}),add,0)) & 3               & -             & No     \\ \hline
-            \end{tabular}
-            \end{table}
-        
+
  
+            \begin{table}[h!]
+                \begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
+               \hline 
+                Test case                  & Test data                                        & Expected result & Actual result & Passed \\ \hline
+                Add strings                & add(toNumber(2), toNumber(5))                     & 7               & -             & No     \\ \hline
+                Add bad array values       & reduce(compact( {[}1,2,"{]}),add,0))              & 3               & -             & No     \\ \hline
+                Slice of objects as string & toString( get( slice( {[}\{a:b\},\{b:a\}{]},1)a.b)) & "b"             & -             & No     \\ \hline
+                Compact falsy list         & Compact(Map( {[}1,2,3,4{]},isEmpty))              & {[}{]}          & -             & No     \\ \hline
+                Filter ending with         & Filter( {[}"ab","ac","bb"{]}, endWith("b"))        & {[}"ab","bb"{]} & -             & No    \\ \hline
+                \end{tabular}
+                \end{table}
 \newpage
-
-\section{Definitions}
-
-No definitions. 
 
 % Kirjallisuusviitteet ladataan referenssit.bib tiedostosta ja lohdeluettelo luodaan.
 
