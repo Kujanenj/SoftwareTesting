@@ -1,5 +1,8 @@
 import map from '../src/map'
 import capitalize from '../src/capitalize'
+import { test } from '@jest/globals'
+import compact from '../src/compact'
+import isEmpty from '../src/isEmpty'
 
 describe("Map", () => {
   let products;
@@ -27,5 +30,15 @@ describe("Map", () => {
   test("to increase multiple product prices", () => {
     expect(map(products, (product) => capitalize(product.name))).toEqual(['Chair', 'Kalle'])
   })
-  //
+  // INTEGRATION
+  test("capitalize multiple products", () => {
+    expect(map(["product1", "product2"], capitalize)).toEqual(["Product1", "Product2"])
+  })
+  test("Falsy list compact", () => {
+    expect(
+      compact(
+        map(
+          [1, 2, 3, 4], isEmpty)))
+      .toEqual([2, 3, 4])
+  })
 })
