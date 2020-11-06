@@ -1,1 +1,2 @@
-Current build -> [![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)
+ [![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)
+[![Coverage Status](https://coveralls.io/repos/github/Kujanenj/SoftwareTesting/badge.svg?branch=main)](https://coveralls.io/github/Kujanenj/SoftwareTesting?branch=main)
