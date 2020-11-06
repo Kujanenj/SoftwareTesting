@@ -1,4 +1,4 @@
-import compact from './../compact'
+import compact from '../src/compact'
 
 describe("compact", () => {
     test("large item", () => {
