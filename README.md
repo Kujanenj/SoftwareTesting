@@ -1,0 +1,1 @@
+https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main
