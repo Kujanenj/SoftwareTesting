@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)a
+Current build -> [![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)
