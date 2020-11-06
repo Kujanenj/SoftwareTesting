@@ -1,16 +1,21 @@
+/*
 describe("Add", () =>{
-    test("Positive numbers",() =>{
-        expect(add(0,5)).to.equal(5)
+    test("Positive numbers",() => {
+        expect(add(5,2)).toBe(7)
     })
-    test("Negative numbers",()=>{
-        expect(add(-5,6).to.equal(1))
+    test("Negative numbers",()=> {
+        expect(add(-5,6)).toBe(1)
     })
 })
+
 describe("capitalize",()=>{
     test("allCharsCap",()=>{
         expect(capitalize("TESTSTRING")).to.equal("Teststring")
     })
 })
+
+/*
+
 describe("compact",()=>{
     test("large item",()=>{
         expect(compact([0,1,"",5,6])).to.equal([0,1,5,6])
@@ -53,7 +58,6 @@ describe("EndWith",()=>{
     })
 })
 
-
 describe("get",()=>{
     test("no field",()=>{
         expect(get({a},'a.b')).to.equal(CRASH)
@@ -77,3 +81,4 @@ describe("reduce",()=>{
     })
 })
 
+*/
