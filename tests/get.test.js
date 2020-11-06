@@ -5,11 +5,11 @@ import get from './../src/get'
 
 describe("get", () => {
     test("no field", () => {
-        expect(get({ a }, 'a.b')).to.equal(null)
+        expect(get({ 'a': 0 }, 'a.b')).toEqual(undefined)
     })
     test("valid", () => {
-        const object = { 'a': [{ 'b': { 'c': 3 } }] }
-        expect(get(object, 'a.b')).to.equal(1)
+        const object = { 'a': { 'b': 1 } }
+        expect(get(object, 'a.b')).toEqual(1)
 
     })
 })

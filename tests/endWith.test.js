@@ -1,11 +1,11 @@
 import endsWith from '../src/endsWith'
 
 
-describe("EndWith", () => {
+describe("EndsWith", () => {
     test("Valid", () => {
-        expect(endWith("abc", "b")).to.equal(False)
+        expect(endsWith("abc", "c")).toEqual(true)
     })
     test("Invalid", () => {
-        expect(endWith(abc, b)).to.equal(CRASH)
+        expect(endsWith('abc', 'b')).toEqual(false)
     })
 })
