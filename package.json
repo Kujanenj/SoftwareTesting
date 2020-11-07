@@ -1,5 +1,11 @@
 {
     "name": "code",
+	"jest": {
+		"coveragePathIgnorePatterns" : [
+			"<rootDir>/node_modules",
+			"<rootDir>/src/.internal"
+		]
+	},
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
