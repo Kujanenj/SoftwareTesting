@@ -3,7 +3,8 @@
 	"jest": {
 		"coveragePathIgnorePatterns" : [
 			"<rootDir>/node_modules",
-			"<rootDir>/src/.internal"
+            "<rootDir>/src/.internal",
+            "<rootDir>/src/compact.js"
 		]
 	},
     "version": "1.0.0",
