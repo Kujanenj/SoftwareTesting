@@ -1,6 +1,6 @@
 ## COMP.SE.200-2020-2021-1 Software Testing
 
-[![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)[![Coverage Status](https://coveralls.io/repos/github/Kujanenj/SoftwareTesting/badge.svg?branch=main)](https://coveralls.io/github/Kujanenj/SoftwareTesting?branch=main)
+[![Build Status](https://travis-ci.com/Kujanenj/SoftwareTesting.svg?branch=main)](https://travis-ci.com/Kujanenj/SoftwareTesting)[![Coverage Status](https://coveralls.io/repos/github/Kujanenj/SoftwareTesting/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/Kujanenj/SoftwareTesting?branch=main)
 
 Travis CI is used to test project builds after new commits are pushed to this repository. 
 
