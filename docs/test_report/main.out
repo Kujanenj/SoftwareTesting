@@ -1,10 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Tools}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Jest}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{TravisCI}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Coveralls}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{Test cases}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{Unit testing}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Test cases}{subsection.3.1}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Integration testing}{section.3}% 9
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Test cases}{subsection.3.2}% 10
+\BOOKMARK [1][-]{section.2}{Test cases}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Unit testing}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Test cases}{subsection.2.1}% 4
+\BOOKMARK [1][-]{section.3}{Findings and conclusions}{}% 5

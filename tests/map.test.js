@@ -26,7 +26,7 @@ describe("Map", () => {
     expect(map(products, (product) => product.price * 2)).toEqual([40, 100])
   })
 
-  test("to increase multiple product prices", () => {
+  test("to capitalize object names", () => {
     expect(map(products, (product) => capitalize(product.name))).toEqual(['Chair', 'Kalle'])
   })
   // INTEGRATION

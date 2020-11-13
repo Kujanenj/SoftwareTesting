@@ -65,40 +65,10 @@
 
 \section{Introduction}
 
-The purpose of this document is to describe testing for an application which is used to sell food products. Testing is done only for the most important 
-functions of the program due to time limitations. The aim of testing is to find problems that easily break the program. In addition, the purpose of this 
-document is to help the reader understand how the testing and the functions to be tested have been roughly performed. 
-
-\section{Tools}
-
-Below this section is a description of all the tools that will be used for this project. The tools have been chosen according to our own experience and interest. 
-
-    \subsection{Jest}
-
-    Jest\cite{Jest} was chosen as the testframework, since it works well with React, and we both have had some experience with Jest beforehand.
-    Jest is used to run the test cases described in this document. A tutorial explaining how to use jest can be found here.\cite{JestTutorial}
-
-    \subsection{TravisCI}
-    
-    TravisCI\cite{Travis} is used during integration testing, because its automatic building and code testing during changes. It is automation provides immediate feedback which 
-    is very useful even in small projects like this.
-    \\
-     It is also useful in continuous integration, since it is better to merge small code changes frequently than a large commit at 
-    the end of the development.
-    \\
-    \\
-     Because CI detects deficiences at the early stage in development, defects are typically less complex and smaller which makes them easier to resolve.
-    Documentation and tutorials for Travis CI usage can be found on this site. \cite{TravisTutorial}
-
-    \subsection{Coveralls}
-
-    Coveralls\cite{coveralls} is used to track test coverage. Coveralls was chosen for this task, since it is required by the course, and it is open source. 
-    A tutorial on how to use Coveralls can be found here\cite{coverallsTutorial}.
+The purpose of this document is to describe testing results for an application which is used to sell food products. Testing was done only for the most important functions of the program due to time limitations. The aim of testing was to find problems that easily break the program. All tests cases are listed in test cases section and overall results are covered in findings and conclusions section.
 
 \section{Test cases}
-This chapter will cover unit and integration testing.
-
-With the large amount of functions present, prioritisation is a must. The functions are rated on a scale of 1 to 5, 5 having the highest priority.
+This chapter will cover unit and integration testing. With the large amount of functions present, prioritisation is a must. The functions are rated on a scale of 1 to 5, 5 having the highest priority.
 Based on the description of the use case for the library, we can focus mostly on functions that handle string manipulation and validation,
 such as 'capitalize','map' and 'isEmpty'. This is because the part of the frontend to be tested  is mostly based on handling user input.
 \\\\
@@ -108,166 +78,404 @@ A complete list of module prioreties and reasoning can be found as an attachment
 
 
     \subsection{Unit testing}
-    Unit tests are run using jest. For each function tested, a table is made, explaining the tests run on that function,
-    their inputs, outputs and expected results. 
+    Unit tests were run using jest. We also used TravisCI to make all commits automatically tested and Coveralls which gave percentage of how many lines were properly covered. 
     \\\\
-    Each test is considered 'passed' once the output matches the expected output. 
-    If bugs or errors are encountered, the corresponding section has a note of it.
-    \\\\
-    The functions to be tested were selected according to their importance to the program. Almost all functions that were in no way related to the operation of the program have been excluded from testing. These tests and test cases may still change during the testing itself and not all test methods may be actually implemented. 
+    The functions to be tested were selected according to their importance to the program. Almost all functions that were in no way related to the operation of the program have been excluded from testing. 
     \newpage
 
         \subsubsection{Test cases}
-        Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases can be written even if they are not listed in these tables. 
-        \\
-        \\
-        \textbf{Function:} add.js
-	
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Positive numbers 					& 0 + 5     					& 5               					& -             		& No     \\ \hline
-                2   & Negative numbers 					& -5 + 6    					& 1               					& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} capitalize.js
-    
-        \begin{table}[h!]
-            \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & all characters capitalized 		& TESTRING     					& Teststring            			& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} compact.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & large item\_id list 				& {[}0, 1, '', 5, 6{]}     		& {[}0,1,5,6{]}               		& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} filter.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & filter products 					& {[}1,2,3,4,5,-5,-3{]}     	& {[}1,2,3,4,5{]}               	& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
+		Here will be listed all unit and integration tests and their results.
+		All original tests are underlined.
 
-\newpage 
-    
-        \textbf{Function:} map.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 									& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & similar actions for array nodes 	& {[}product1, product2{]}, capitalize     		& {[}Product1, Product2{]}          & -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-        \textbf{Function:} slice.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        							& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & remove certain amount from product list 	& {[}1, 2, 3, 4{]} , 2     		& {[}3, 4{]}               			& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-        
-        \textbf{Function:} toNumber.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & modify string to number 			& '3.2'     					& 3.2               				& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} toString.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        										& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & multiple products into a single string 				& {[}p1, p2, p3, p4{]}     		& 'p1, p2, p3, p4'                	& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} endWith.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Valid input 						& "abc","b"      				& False                				& -             		& No     \\ \hline
-                2   & Invalid input 					& abc,b     					& ???               				& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
+		\hypertarget{header-n5}{%
+		\subparagraph{1. Function:}\label{header-n5}}
+
+		add.js
+		
+		\hypertarget{header-n7}{%
+		\subparagraph{Tests:}\label{header-n7}}
+		
+		\begin{itemize}
+		\item
+		Unit - add
+		
+		\begin{itemize}
+			\item
+			\underline{Only positive numbers}
+			\item
+			Negative and positive numbers
+			\item
+			Only negative numbers
+			\item
+			Zeros
+		\end{itemize}
+		\item
+		Integration
+		
+		\begin{itemize}
+			\item
+			\underline{Strings using toString}
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n25}{%
+		\subparagraph{Result:}\label{header-n25}}
+		
+		All tests passed without problems.
+		
+		
+		
+		\hypertarget{header-n50}{%
+		\subparagraph{2. Function:}\label{header-n50}}
+		
+		capitalize.js
+		
+		\hypertarget{header-n52}{%
+		\subparagraph{Tests:}\label{header-n52}}
+		
+		\begin{itemize}
+		\item
+		Unit - correct capitalization when
+		
+		\begin{itemize}
+			\item
+			\underline{All characters are capitalized}
+			\item
+			First letter is number
+			\item
+			First letter is character and others are numbers
+			\item
+			String contains other symbols
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n70}{%
+		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n70}}
+		
+		All tests passed without problems. We decided to add more functions
+		because we wanted to make sure that the function works with other values
+		aswell.
+		
 \newpage
-    
-        \textbf{Function:} get.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Non  existent field 				& \{a\},'a.b'     				& ???               				& -             		& No     \\ \hline
-                2   & valid Input 						& \{a:b:1\},'a.b'     			& ???               				& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
+		
+		\hypertarget{header-n378}{%
+		\subparagraph{3. Function:}\label{header-n378}}
+		
+		compact.js
+		
+		\hypertarget{header-n380}{%
+		\subparagraph{Tests:}\label{header-n380}}
+		
+		\begin{itemize}
+		\item
+		Unit - compact
+		
+		\begin{itemize}
+			\item
+			\underline{Large item id list}
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n393}{%
+		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n393}}
+		
+		When we gave array to compact.js function it doesn't filter values
+		properly. For example, when we gave array {[}0, 1, false, 2, '', 3{]} it
+		returned {[}0, 1, false, 2, ,3{]} which is far from right one which is
+		{[}1, 2, 3{]}. That's why we decided to not test that function anymore
+		because it broke our pipeline.
+		
+		
+		
+		\hypertarget{header-n358}{%
+		\subparagraph{4. Function:}\label{header-n358}}
+		
+		Endswith.js
+		
+		\hypertarget{header-n101}{%
+		\subparagraph{Tests:}\label{header-n101}}
+		
+		\begin{itemize}
+		\item
+		Unit - when string endswith
+		
+		\begin{itemize}
+			\item
+			\underline{Valid character}
+			\item
+			\underline{Invalid character}
+			\item
+			Second to last character
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n114}{%
+		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n114}}
+		
+		All tests passed without problems.
+		
+		
+		
+		
+		\hypertarget{header-n148}{%
+		\subparagraph{5. Function:}\label{header-n148}}
+		
+		filter.js
+		
+		\hypertarget{header-n150}{%
+		\subparagraph{Tests:}\label{header-n150}}
+		
+		\begin{itemize}
+		\item
+		Unit - filter
+		
+		\begin{itemize}
+			\item
+			\underline{Invalid product numbers}
+			\item
+			Sold products
+		\end{itemize}
+		\item
+		Integration
+		
+		\begin{itemize}
+			\item
+			\underline{Ending with filter}
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n168}{%
+		\subparagraph{Result:}\label{header-n168}}
+		
+		All tests passed without problems.
 
-        \textbf{Function:} isEmpty.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case         						& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Null 										& null     						& True                				& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \textbf{Function:} reduce.js
-        
-        \begin{table}[h!]
-           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
-                \hline
-                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
-                1   & Sum of an array 					& {[}1,2,3{]},add,0     		& 6                					& -             		& No     \\ \hline
-            \end{tabular}
-        \end{table}
-\newpage
-    \subsection{Integration testing}
-        Integration tests are also run using jest, but also with TravisCI, and Coveralls. In these tests, the modules tested in unit testing phase are integrated, and tested together. Each time a new commit is made to the master branch, Travis will run all tests and sends a coverage report to Coveralls. The formatting of the tables will be the same as in unit testing. 
-        \subsubsection{Test cases}  
-        Here can be found all the integration test cases.
+
+
+		\hypertarget{header-n202}{%
+		\subparagraph{6. Function:}\label{header-n202}}
+		
+		get.js
+		
+		\hypertarget{header-n204}{%
+		\subparagraph{Tests:}\label{header-n204}}
+		
+		\begin{itemize}
+		\item
+		Unit - get object
+		
+		\begin{itemize}
+			\item
+			\underline{When there is no field}
+			\item
+			\underline{When there is valid test object}
+			\item
+			When there is valid test object but the path is wrong
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n218}{%
+		\subparagraph{Result:}\label{header-n218}}
+		
+		All tests passed without problems.
 
 
 
+		\hypertarget{header-n247}{%
+		\subparagraph{7. Function:}\label{header-n247}}
+		
+		isEmpty.js
+		
+		\hypertarget{header-n249}{%
+		\subparagraph{Tests:}\label{header-n249}}
+		
+		\begin{itemize}
+		\item
+		Unit - is empty
+		
+		\begin{itemize}
+			\item
+			\underline{When value is null}
+			\item
+			When value is array
+			\item
+			When value is object
+			\item
+			When value is number
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n260}{%
+		\subparagraph{Result:}\label{header-n260}}
+		
+		All tests passed without problems.
 
- 
-            \begin{table}[h!]
-                \begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
-               \hline 
-                Test case                  & Test data                                        & Expected result & Actual result & Passed \\ \hline
-                Add strings                & add(toNumber(2), toNumber(5))                     & 7               & -             & No     \\ \hline
-                Add bad array values       & reduce(compact( {[}1,2,"{]}),add,0))              & 3               & -             & No     \\ \hline
-                Slice of objects as string & toString( get( slice( {[}\{a:b\},\{b:a\}{]},1)a.b)) & "b"             & -             & No     \\ \hline
-                Compact falsy list         & Compact(Map( {[}1,2,3,4{]},isEmpty))              & {[}{]}          & -             & No     \\ \hline
-                Filter ending with         & Filter( {[}"ab","ac","bb"{]}, endWith("b"))        & {[}"ab","bb"{]} & -             & No    \\ \hline
-                \end{tabular}
-                \end{table}
-\newpage
+
+
+		\hypertarget{header-n288}{%
+		\subparagraph{8. Function:}\label{header-n288}}
+		
+		map.js
+		
+		\hypertarget{header-n290}{%
+		\subparagraph{Tests:}\label{header-n290}}
+		
+		\begin{itemize}
+		\item
+		Unit - map
+		
+		\begin{itemize}
+			\item
+			\underline{To capitalize multiple products}
+			\item
+			To increase multiple product prices
+			\item
+			To capitalize object names
+		\end{itemize}
+		\item
+		Integration
+		
+		\begin{itemize}
+			\item
+			\underline{Falsy list compact}
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n303}{%
+		\subparagraph{Result:}\label{header-n303}}
+		
+		All unit tests passed but we could not test integration because compact
+		function doesn't work properly.
+
+
+		
+		\hypertarget{header-n423}{%
+		\subparagraph{9. Function:}\label{header-n423}}
+		
+		reduce.js
+		
+		\hypertarget{header-n425}{%
+		\subparagraph{Tests:}\label{header-n425}}
+		
+		\begin{itemize}
+		\item
+		Unit - reduce
+		
+		\begin{itemize}
+			\item
+			\underline{Sum array}
+		\end{itemize}
+		\end{itemize}
+		
+		\begin{itemize}
+		\item
+		Integration
+		
+		\begin{itemize}
+			\item
+			\underline{Sum bad array} with compact
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n438}{%
+		\subparagraph{Result:}\label{header-n438}}
+		
+		All unit tests passed without problems but integration test failed
+		because of compact function.
+
+
+
+		\hypertarget{header-n472}{%
+		\subparagraph{10. Function:}\label{header-n472}}
+		
+		slice.js
+		
+		\hypertarget{header-n474}{%
+		\subparagraph{Tests:}\label{header-n474}}
+		
+		\begin{itemize}
+		\item
+		Unit - slice
+		
+		\begin{itemize}
+			\item
+			\underline{End of the array}
+			\item
+			From between of the array
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n487}{%
+		\subparagraph{Result:}\label{header-n487}}
+		
+		All unit tests passed without problems.
+
+
+
+		\hypertarget{header-n515}{%
+		\subparagraph{11. Function:}\label{header-n515}}
+		
+		toNumber.js
+		
+		\hypertarget{header-n517}{%
+		\subparagraph{Tests:}\label{header-n517}}
+		
+		\begin{itemize}
+		\item
+		Unit - to number
+		
+		\begin{itemize}
+			\item
+			\underline{when value is string}
+			\item
+			when value is infinity
+			\item
+			when value is decimal
+			\item
+			when value is negative integer
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n526}{%
+		\subparagraph{Result:}\label{header-n526}}
+		
+		All unit tests passed without problems.
+
+
+
+		\hypertarget{header-n558}{%
+		\subparagraph{12. Function:}\label{header-n558}}
+		
+		toString.js
+		
+		\hypertarget{header-n560}{%
+		\subparagraph{Tests:}\label{header-n560}}
+		
+		\begin{itemize}
+		\item
+		Unit - to string
+		
+		\begin{itemize}
+			\item
+			\underline{when value is array}
+			\item
+			when value is negative zero
+		\end{itemize}
+		\item
+		Integration
+		
+		\begin{itemize}
+			\item
+			String: slice of objects
+		\end{itemize}
+		\end{itemize}
+		
+		\hypertarget{header-n573}{%
+		\subparagraph{Result:}\label{header-n573}}
+		
+		All unit tests passed without problems.
+
+\section{Findings and conclusions}
+Overall unit tests went pretty well when integration testing was a bit rough because of failure in compact.js function. We noticed that it was easy to test more deeply all functions and that is very noticeable in the number of tests compared to the original plan. Also TravisCI and Coveralls together helped a lot because it was so much easier to write new tests when you knew what parts of the function were not tested yet. In addition, it was great to see how easy it was to setup pipeline which told after certain amount of time was the build succesfull and whether the results improved in any way. In the future, we are sure that we will continue to use Travis and Coveralls to get all data out of our code. 
 
 % Kirjallisuusviitteet ladataan referenssit.bib tiedostosta ja lohdeluettelo luodaan.
 
@@ -280,61 +488,205 @@ A complete list of module prioreties and reasoning can be found as an attachment
 
 Priority table \ref{priorityTable}
 
-\begin{table}[h]\caption{Priority}\label{priorityTable}
-    \centering
-    \begin{tabular}{l|c|l}
-    \textbf{ Module Name}  & \textbf{Importance Rating} & \textbf{Reason}                                \\ \hline
-    add          & 4                 & Adding prices                         \\  \hline
-    at           & 1                 & Not needed                            \\ \hline
-    camelCase    & 1                 & Not needed                            \\ \hline
-    capitalize   & 3                 & String manipulation                   \\ \hline
-    castArray    & 1                 & Not needed                            \\ \hline
-    ceil         & 1                 & Not needed                            \\ \hline
-    chunk        & 1                 & Not needed                            \\ \hline
-    clamp        & 1                 & Not needed                            \\ \hline
-    compact      & 2                 & Might need to remove empty values     \\ \hline
-    countBy      & 1                 & Not needed                            \\ \hline
-    defaultTo    & 1                 & Not needed                            \\ \hline
-    defaultToAny & 1                 & Not needed                            \\ \hline
-    difference   & 1                 & Not needed                            \\ \hline
-    divide       & 1                 & Not needed                            \\ \hline
-    drop         & 1                 & Not needed                            \\ \hline
-    endsWith     & 3                 & Searching for products                \\ \hline
-    eq           & 1                 & Not needed                            \\ \hline
-    every        & 1                 & Not needed                            \\ \hline
-    filter       & 3                 & Searching products                    \\ \hline
-    get          & 2                 & object manipulation                   \\ \hline
-    isArguments  & 1                 & Not needed                            \\ \hline
-    isArrayLike  & 1                 & Not needed                            \\ \hline
-    isArrayLike  & 1                 & Not needed                            \\ \hline
-    isBoolean    & 1                 & Not needed                            \\ \hline
-    isBuffer     & 1                 & Not needed                            \\ \hline
-    isDate       & 1                 & Not needed                            \\ \hline
-    isEmpty      & 2                 & Empty input fields                    \\ \hline
-    isLenght     & 1                 & Not needed                            \\ \hline
-    isObject     & 1                 & Not needed                            \\ \hline
-    isObjectLike & 1                 & Not needed                            \\ \hline
-    isSymbol     & 1                 & Not needed                            \\ \hline
-    isTypedArray & 1                 & Not needed                            \\ \hline
-    keys         & 1                 & Not needed                            \\ \hline
-    map          & 3                 & String manipulation                   \\ \hline
-    memoize      & 1                 & Not needed                            \\ \hline
-    reduce       & 4                 & String manipulation, adding prices    \\ \hline
-    slice        & 2                 & Remove items from cart                \\ \hline
-    toFinite     & 1                 & Not needed                            \\ \hline
-    toInteger    & 2                 & Input validation                      \\ \hline
-    toNumber     & 2                 & Input validation                      \\  \hline
-    toString     & 2                 & Input validation, string manipulation \\ \hline
-    upperFirst   & 1                 & Not needed                            \\ \hline
-    words        & 1                 & Not needed                           
-    \end{tabular}
+	\begin{table}[h]\caption{Priority}\label{priorityTable}
+	    \centering
+	    \begin{tabular}{l|c|l}
+	    \textbf{ Module Name}  & \textbf{Importance Rating} & \textbf{Reason}                                \\ \hline
+	    add          & 4                 & Adding prices                         \\  \hline
+	    at           & 1                 & Not needed                            \\ \hline
+	    camelCase    & 1                 & Not needed                            \\ \hline
+	    capitalize   & 3                 & String manipulation                   \\ \hline
+	    castArray    & 1                 & Not needed                            \\ \hline
+	    ceil         & 1                 & Not needed                            \\ \hline
+	    chunk        & 1                 & Not needed                            \\ \hline
+	    clamp        & 1                 & Not needed                            \\ \hline
+	    compact      & 2                 & Might need to remove empty values     \\ \hline
+	    countBy      & 1                 & Not needed                            \\ \hline
+	    defaultTo    & 1                 & Not needed                            \\ \hline
+	    defaultToAny & 1                 & Not needed                            \\ \hline
+	    difference   & 1                 & Not needed                            \\ \hline
+	    divide       & 1                 & Not needed                            \\ \hline
+	    drop         & 1                 & Not needed                            \\ \hline
+	    endsWith     & 3                 & Searching for products                \\ \hline
+	    eq           & 1                 & Not needed                            \\ \hline
+	    every        & 1                 & Not needed                            \\ \hline
+	    filter       & 3                 & Searching products                    \\ \hline
+	    get          & 2                 & object manipulation                   \\ \hline
+	    isArguments  & 1                 & Not needed                            \\ \hline
+	    isArrayLike  & 1                 & Not needed                            \\ \hline
+	    isArrayLike  & 1                 & Not needed                            \\ \hline
+	    isBoolean    & 1                 & Not needed                            \\ \hline
+	    isBuffer     & 1                 & Not needed                            \\ \hline
+	    isDate       & 1                 & Not needed                            \\ \hline
+	    isEmpty      & 2                 & Empty input fields                    \\ \hline
+	    isLenght     & 1                 & Not needed                            \\ \hline
+	    isObject     & 1                 & Not needed                            \\ \hline
+	    isObjectLike & 1                 & Not needed                            \\ \hline
+	    isSymbol     & 1                 & Not needed                            \\ \hline
+	    isTypedArray & 1                 & Not needed                            \\ \hline
+	    keys         & 1                 & Not needed                            \\ \hline
+	    map          & 3                 & String manipulation                   \\ \hline
+	    memoize      & 1                 & Not needed                            \\ \hline
+	    reduce       & 4                 & String manipulation, adding prices    \\ \hline
+	    slice        & 2                 & Remove items from cart                \\ \hline
+	    toFinite     & 1                 & Not needed                            \\ \hline
+	    toInteger    & 2                 & Input validation                      \\ \hline
+	    toNumber     & 2                 & Input validation                      \\  \hline
+	    toString     & 2                 & Input validation, string manipulation \\ \hline
+	    upperFirst   & 1                 & Not needed                            \\ \hline
+	    words        & 1                 & Not needed                           
+	    \end{tabular}
     \end{table}
+\end{document}
+       
+\begin{comment} 
+Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases can be written even if they are not listed in these tables. 
+\\
+\\
+\textbf{Function:} add.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & Positive numbers 					& 0 + 5     					& 5               					& -             		& No     \\ \hline
+		2   & Negative numbers 					& -5 + 6    					& 1               					& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} capitalize.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & all characters capitalized 		& TESTRING     					& Teststring            			& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} compact.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & large item\_id list 				& {[}0, 1, '', 5, 6{]}     		& {[}0,1,5,6{]}               		& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} filter.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & filter products 					& {[}1,2,3,4,5,-5,-3{]}     	& {[}1,2,3,4,5{]}               	& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage 
+
+\textbf{Function:} map.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 									& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & similar actions for array nodes 	& {[}product1, product2{]}, capitalize     		& {[}Product1, Product2{]}          & -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+\textbf{Function:} slice.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        							& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & remove certain amount from product list 	& {[}1, 2, 3, 4{]} , 2     		& {[}3, 4{]}               			& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} toNumber.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & modify string to number 			& '3.2'     					& 3.2               				& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} toString.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        										& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & multiple products into a single string 				& {[}p1, p2, p3, p4{]}     		& 'p1, p2, p3, p4'                	& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} endWith.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & Valid input 						& "abc","b"      				& False                				& -             		& No     \\ \hline
+		2   & Invalid input 					& abc,b     					& ???               				& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Function:} get.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & Non  existent field 				& \{a\},'a.b'     				& ???               				& -             		& No     \\ \hline
+		2   & valid Input 						& \{a:b:1\},'a.b'     			& ???               				& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} isEmpty.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case         						& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & Null 										& null     						& True                				& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Function:} reduce.js
+
+\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		1   & Sum of an array 					& {[}1,2,3{]},add,0     		& 6                					& -             		& No     \\ \hline
+	\end{tabular}
+\end{table}
+\newpage
+\subsection{Integration testing}
+Integration tests are also run using jest, but also with TravisCI, and Coveralls. In these tests, the modules tested in unit testing phase are integrated, and tested together. Each time a new commit is made to the master branch, Travis will run all tests and sends a coverage report to Coveralls. The formatting of the tables will be the same as in unit testing. 
+\subsubsection{Test cases}  
+Here can be found all the integration test cases.
 
 
 
 
 
-
-
-
-            \end{document}
+\begin{table}[h!]
+	\begin{tabular}{|p{3cm}|p{4cm}|p{2cm}|p{2cm}|l|}
+		\hline 
+		Test case                  & Test data                                        & Expected result & Actual result & Passed \\ \hline
+		Add strings                & add(toNumber(2), toNumber(5))                     & 7               & -             & No     \\ \hline
+		Add bad array values       & reduce(compact( {[}1,2,"{]}),add,0))              & 3               & -             & No     \\ \hline
+		Slice of objects as string & toString( get( slice( {[}\{a:b\},\{b:a\}{]},1)a.b)) & "b"             & -             & No     \\ \hline
+		Compact falsy list         & Compact(Map( {[}1,2,3,4{]},isEmpty))              & {[}{]}          & -             & No     \\ \hline
+		Filter ending with         & Filter( {[}"ab","ac","bb"{]}, endWith("b"))        & {[}"ab","bb"{]} & -             & No    \\ \hline
+	\end{tabular}
+\end{table}
+\end{comment}
