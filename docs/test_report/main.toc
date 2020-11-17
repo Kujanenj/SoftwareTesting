@@ -1,7 +1,7 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Test cases}{1}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Unit testing}{1}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.1}Unit testing and integration testing}{1}{subsection.2.1}% 
 \contentsline {subsubsection}{\numberline {2.1.1}Test cases}{2}{subsubsection.2.1.1}% 
 \contentsline {subparagraph}{1. Function:}{2}{section*.2}% 
 \contentsline {subparagraph}{Tests:}{2}{section*.3}% 
@@ -39,4 +39,4 @@
 \contentsline {subparagraph}{12. Function:}{6}{section*.35}% 
 \contentsline {subparagraph}{Tests:}{6}{section*.36}% 
 \contentsline {subparagraph}{Result:}{6}{section*.37}% 
-\contentsline {section}{\numberline {3}Findings and conclusions}{6}{section.3}% 
+\contentsline {section}{\numberline {3}Findings and conclusions}{7}{section.3}% 
