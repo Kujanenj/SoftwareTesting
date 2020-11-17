@@ -21,35 +21,40 @@
 
 \usepackage{datetime}
 
-\title{Fysiikan toiden selostuspohja}
-
-\begin{document}
-
+\setlength {\marginparwidth }{2cm}\begin{document}
+ 
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
- 
-        \textbf{COMP.SE.200-2020-2021-1 Software Testing}
-        \\
+            
+        \Huge
         \textbf{Test report}
- 
+            
         \vspace{0.5cm}
-       
-             
+        \LARGE
+        COMP.SE.200-2020-2021-1\\
+        Software Testing
+            
         \vspace{1.5cm}
-
+            
         \textbf{Jussi Kujanen 273161}
         \\
         \textbf{Veikko Hiltunen 283475}
-        \\
-        \textbf{https://github.com/Kujanenj/SoftwareTesting}
- 
+            
         \vfill
+            
+        \href{https://github.com/Kujanenj/SoftwareTesting}{Github} \\
+            
         \vspace{0.8cm}
+            
+        \Large
         Tampere University\\
-        October 10th, 2020
+        Finland\\
+        November 17th, 2020
+            
     \end{center}
- \end{titlepage} 
+\end{titlepage}
+ 
 
 
 
@@ -65,87 +70,63 @@
 
 \section{Introduction}
 
-The purpose of this document is to describe testing results for an application which is used to sell food products. Testing was done only for the most important functions of the program due to time limitations. The aim of testing was to find problems that easily break the program. All tests cases are listed in test cases section and overall results are covered in findings and conclusions section.
+The purpose of this document is to report testing results for an application which is used to sell food products. Testing was done only for the most important functions of the program due to time limitations. The aim of testing was to find problems that easily break the program. All tests cases are listed in test cases section and overall results are covered in findings and conclusions section.
 
 \section{Test cases}
-This chapter will cover unit and integration testing. With the large amount of functions present, prioritisation is a must. The functions are rated on a scale of 1 to 5, 5 having the highest priority.
+This chapter will cover unit and integration testing, and tests added in the second phase of testing.
+
+
+
+With the large amount of functions present, prioritisation is a must. The functions are rated on a scale of 1 to 5, 5 having the highest priority.
 Based on the description of the use case for the library, we can focus mostly on functions that handle string manipulation and validation,
 such as 'capitalize','map' and 'isEmpty'. This is because the part of the frontend to be tested  is mostly based on handling user input.
-\\\\
+
+\vspace{5mm}
 
 Functions that are not essential for string manipulation have lower priority, and are not tested.
 A complete list of module prioreties and reasoning can be found as an attachment to this document. \ref{priorityTable}
 
 
     \subsection{Unit testing and integration testing}
-    Unit tests and integration tests were run using Jest. We also used TravisCI to make all commits automatically tested and Coveralls which gave percentage of how many lines were properly covered. 
-    \\\\
-    The functions to be tested were selected according to their importance to the program. Almost all functions that were in no way related to the operation of the program have been excluded from testing. 
+    Unit tests and integration tests were run using Jest \cite{jest}. We also used TravisCI \cite{travis} to make all commits automatically tested and Coveralls \cite{coveralls} which gave percentage of how many lines were properly covered. 
+    
+    \vspace{5mm}
+    
+    The functions to be tested were selected according to their importance to the program. Almost all functions that were in no way related to the operation of the program have been excluded from testing. \\
+    \\
+    Functions that were not part of the original test plan, have their test number \textbf{emboldened}. Tests that are integration tests are marked with [i].
     \newpage
 
         \subsubsection{Test cases}
 		Here will be listed all unit and integration tests and their results.
-		All original tests are underlined.
+		All original tests are underlined. 
 
 		\hypertarget{header-n5}{%
 		\subparagraph{1. Function:}\label{header-n5}}
 
 		add.js
 		
-		\hypertarget{header-n7}{%
-		\subparagraph{Tests:}\label{header-n7}}
-		
-		\begin{itemize}
-		\item
-		Unit - add
-		
-		\begin{itemize}
-			\item
-			\underline{Only positive numbers}
-			\item
-			Negative and positive numbers
-			\item
-			Only negative numbers
-			\item
-			Zeros
-		\end{itemize}
-		\item
-		Integration
-		
-		\begin{itemize}
-			\item
-			\underline{Strings using toString}
-		\end{itemize}
-		\end{itemize}
-		
 		\hypertarget{header-n25}{%
 		\subparagraph{Result:}\label{header-n25}}
 		
 		All tests passed without problems.
 		
+		\begin{table}[h!]
+        	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+        		\hline
+        		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed            \\ \hline
+        		\textbf{1}   & positive numbers 					& (0, 5)     					& 5               					& 7             		& Yes   \\ \hline
+        		2            & negative and positive numbers			& (-5, 6)    					& 1               					& 1             		& Yes   \\ \hline
+        		3            & only negative numbers			        & (-5, 6)    					& -11               				& -11             		& Yes   \\ \hline
+        		4            & zeros			                        & (0, 0)    					& 0               				    & 0             		& Yes   \\ \hline
+            \end{tabular}
+        \end{table}
+		
+		\newpage
 		\hypertarget{header-n50}{%
 		\subparagraph{2. Function:}\label{header-n50}}
 		
 		capitalize.js
-		
-		\hypertarget{header-n52}{%
-		\subparagraph{Tests:}\label{header-n52}}
-		
-		\begin{itemize}
-		\item
-		Unit - correct capitalization when
-		
-		\begin{itemize}
-			\item
-			\underline{All characters are capitalized}
-			\item
-			First letter is number
-			\item
-			First letter is character and others are numbers
-			\item
-			String contains other symbols
-		\end{itemize}
-		\end{itemize}
 		
 		\hypertarget{header-n70}{%
 		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n70}}
@@ -154,25 +135,23 @@ A complete list of module prioreties and reasoning can be found as an attachment
 		because we wanted to make sure that the function works with other values
 		aswell.
 		
+		\begin{table}[h!]
+        	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+        		\hline
+        		Num & Test case        					                                        & Test data 					    & Expected result 					& Actual result 		& Passed \\ \hline
+        		\textbf{1}      & when all characters are capitalized 		                    & (TEST STRING)     					& Teststring            			& Teststring            & Yes     \\ \hline
+        		2               & when first letter is number 		                            & (0123Test)     					    & 0123test           		    	& 0123test              & Yes     \\ \hline
+        		3               & when first letter is character and others are numbers 		& (P1234567)     					    & P1234567           			    & P1234567              & Yes     \\ \hline
+        		4               & when string contains other symbols 		                    & (J\%/¤#)   					        & J\%/¤#             			    & J\%/¤#                & Yes     \\ \hline
+        	\end{tabular}
+        \end{table}
+		
 \newpage
 		
 		\hypertarget{header-n378}{%
 		\subparagraph{3. Function:}\label{header-n378}}
 		
 		compact.js
-		
-		\hypertarget{header-n380}{%
-		\subparagraph{Tests:}\label{header-n380}}
-		
-		\begin{itemize}
-		\item
-		Unit - compact
-		
-		\begin{itemize}
-			\item
-			\underline{Large item id list}
-		\end{itemize}
-		\end{itemize}
 		
 		\hypertarget{header-n393}{%
 		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n393}}
@@ -183,6 +162,14 @@ A complete list of module prioreties and reasoning can be found as an attachment
 		{[}1, 2, 3{]}. That's why we decided to not test that function anymore
 		because it broke our pipeline.
 		
+		\begin{table}[h!]
+	        \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		\textbf{1}   & large item\_id list 				& {[}0, 1, false, 2, '', 3{]}     		& {[}1, 2, 3{]}              		& {[}0, 1, false, 2, ,3{]}             	    	& no     \\ \hline
+	        \end{tabular}
+        \end{table}
+		
 		
 		
 		\hypertarget{header-n358}{%
@@ -190,62 +177,55 @@ A complete list of module prioreties and reasoning can be found as an attachment
 		
 		Endswith.js
 		
-		\hypertarget{header-n101}{%
-		\subparagraph{Tests:}\label{header-n101}}
-		
-		\begin{itemize}
-		\item
-		Unit - when string endswith
-		
-		\begin{itemize}
-			\item
-			\underline{Valid character}
-			\item
-			\underline{Invalid character}
-			\item
-			Second to last character
-		\end{itemize}
-		\end{itemize}
-		
 		\hypertarget{header-n114}{%
 		\subparagraph{\texorpdfstring{Result: }{Result: }}\label{header-n114}}
 		
 		All tests passed without problems.
 		
+		\begin{table}[h!]
+	        \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		        & Passed \\ \hline
+		\textbf{1}   & valid character 					    	& "abc","c"      	& true                				& true             		    & Yes     \\ \hline
+		\textbf{2}   & invalid character				    	& abc,b     		& false               				& false             		& Yes     \\ \hline
+		3   & second to last character					& abc,b, 2     		& true               				& true             	    	& Yes     \\ \hline
+	        \end{tabular}
+        \end{table}
 		
 		
+		
+		\newpage
 		
 		\hypertarget{header-n148}{%
 		\subparagraph{5. Function:}\label{header-n148}}
 		
 		filter.js
 		
-		\hypertarget{header-n150}{%
-		\subparagraph{Tests:}\label{header-n150}}
-		
-		\begin{itemize}
-		\item
-		Unit - filter
-		
-		\begin{itemize}
-			\item
-			\underline{Invalid product numbers}
-			\item
-			Sold products
-		\end{itemize}
-		\item
-		Integration
-		
-		\begin{itemize}
-			\item
-			\underline{Ending with filter}
-		\end{itemize}
-		\end{itemize}
-		
 		\hypertarget{header-n168}{%
 		\subparagraph{Result:}\label{header-n168}}
 		
 		All tests passed without problems.
+		
+		\vspace{0.5cm}
+		NOTE:
+\\
+\\
+products = 
+		\\
+		'product' : 'dogfood', 'unsold' : true
+		\\
+		'product' : 'catfood', 'unsold' : false
+		
+		
+		\begin{table}[h!]
+	        \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        				                    	& Test data 					             & Expected result 					    & Actual result 		                    & Passed    \\ \hline
+		\textbf{1}                  & invalid product numbers 					& {[{1, 2, 3, 4, 5, -6, 7}]}     	        & {[{1, 2, 3, 4, 5, 7}]}             	& {[{1, 2, 3, 4, 5, 7}]}            		& Yes       \\ \hline
+		2                           & sold products  				        	& products                                              & dogfood             	                & dogfood            		                & Yes       \\ \hline
+		 \textbf{3}[i]               & ending with filter  				        &  ["ab", "ac", "bb"], b                                   & ["ab", "bb"]             	                & ["ab", "bb"]            		            & Yes       \\ \hline
+	        \end{tabular}
+        \end{table}
 
 
 
@@ -254,97 +234,85 @@ A complete list of module prioreties and reasoning can be found as an attachment
 		
 		get.js
 		
-		\hypertarget{header-n204}{%
-		\subparagraph{Tests:}\label{header-n204}}
-		
-		\begin{itemize}
-		\item
-		Unit - get object
-		
-		\begin{itemize}
-			\item
-			\underline{When there is no field}
-			\item
-			\underline{When there is valid test object}
-			\item
-			When there is valid test object but the path is wrong
-		\end{itemize}
-		\end{itemize}
+
 		
 		\hypertarget{header-n218}{%
 		\subparagraph{Result:}\label{header-n218}}
 		
 		All tests passed without problems.
+\\
+\\
+    NOTE:
+    testobject = \{ a : \{ b : 1\} \}
+        \begin{table}[h!]
+        	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+        		\hline
+        		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+        		1   & Non  existent field 				& \{a\},'a.b'     				& undefined               				& undefined             		& Yes     \\ \hline
+        		2   & Valid object 						& testObject, 'a.b'     			& 1               				& 1             		& Yes     \\ \hline
+        			3   & Not equal 2 						& testObject, 'a.b'     			& not 2               				& not 2             		& Yes     \\ \hline
+        			
+        				
+        	\end{tabular}
+        \end{table}
 
-
-
+\newpage
 		\hypertarget{header-n247}{%
 		\subparagraph{7. Function:}\label{header-n247}}
 		
 		isEmpty.js
-		
-		\hypertarget{header-n249}{%
-		\subparagraph{Tests:}\label{header-n249}}
-		
-		\begin{itemize}
-		\item
-		Unit - is empty
-		
-		\begin{itemize}
-			\item
-			\underline{When value is null}
-			\item
-			When value is array
-			\item
-			When value is object
-			\item
-			When value is number
-		\end{itemize}
-		\end{itemize}
 		
 		\hypertarget{header-n260}{%
 		\subparagraph{Result:}\label{header-n260}}
 		
 		All tests passed without problems. Here, we also wanted to add more tests so we can be sure that function can work between different parameters.
 
-
+        \begin{table}[h!]
+        	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+        		\hline
+        		Num & Test case         						& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+        		1   & Value is null 										& null     						& True                				& true             		& Yes     \\ \hline
+        		  		2   & Value is array 										& [1,2,3]     						& false                				& false             		& Yes     \\ \hline
+        		  		  		3   & Value is object 										& \{a:1\}     						& false                				& false             		& Yes     \\ \hline
+        		  		  		  		4   & Value is number 										& 1     						& True                				& true             		& Yes     \\ \hline
+        		  		  		  		
+        	\end{tabular}
+        \end{table}
 
 		\hypertarget{header-n288}{%
 		\subparagraph{8. Function:}\label{header-n288}}
 		
 		map.js
 		
-		\hypertarget{header-n290}{%
-		\subparagraph{Tests:}\label{header-n290}}
-		
-		\begin{itemize}
-		\item
-		Unit - map
-		
-		\begin{itemize}
-			\item
-			\underline{To capitalize multiple products}
-			\item
-			To increase multiple product prices
-			\item
-			To capitalize object names
-		\end{itemize}
-		\item
-		Integration
-		
-		\begin{itemize}
-			\item
-			\underline{Falsy list compact}
-		\end{itemize}
-		\end{itemize}
-		
 		\hypertarget{header-n303}{%
 		\subparagraph{Result:}\label{header-n303}}
 		
 		All unit tests passed but we could not test integration because compact
 		function does not work properly.
-
-
+    NOTE: 
+    \\
+    \\
+    products = 
+       [  \{
+        'name': 'chair',
+        'price': 20
+      \},
+      \{
+        'name': 'kalle',
+        'price': 50
+      \}]
+        \begin{table}[h!]
+        	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+        		\hline
+        		Num & Test case        					& Test data 									& Expected result 					& Actual result 		& Passed \\ \hline
+        		\textbf{1}   & Capitalize multiple products 	& {[}product1, product2{]}, capitalize     		& {[}Product1, Product2{]}          &   {[}Product1, Product2{]}              		& Yes     \\ \hline
+        		2   & Increase multiple product prices 	& products, price * 2   		& [40,100]       &   [40,100\               		& Yes     \\ \hline
+        		3   & Capitalize object names 	& products, capitalize     		& [Chair, Kalle]       &  [Chair, Kalle]              		& Yes     \\ \hline
+        		\textbf{4}[i]   & Falsy list compact 	& compact, map [1,2,3,4] isEmpty     		& [2,3,4,]          &   -              		& No     \\ \hline
+        	\end{tabular}
+        \end{table}
+		
+		\newpage
 		
 		\hypertarget{header-n423}{%
 		\subparagraph{9. Function:}\label{header-n423}}
@@ -354,128 +322,116 @@ A complete list of module prioreties and reasoning can be found as an attachment
 		\hypertarget{header-n425}{%
 		\subparagraph{Tests:}\label{header-n425}}
 		
-		\begin{itemize}
-		\item
-		Unit - reduce
+
 		
-		\begin{itemize}
-			\item
-			\underline{Sum array}
-		\end{itemize}
-		\end{itemize}
-		
-		\begin{itemize}
-		\item
-		Integration
-		
-		\begin{itemize}
-			\item
-			\underline{Sum bad array} with compact
-		\end{itemize}
-		\end{itemize}
-		
-		\hypertarget{header-n438}{%
-		\subparagraph{Result:}\label{header-n438}}
+	
 		
 		All unit tests passed without problems but integration test failed
 		because of compact function.
 
-
+        \begin{table}[h!]
+           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+                \hline
+                Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+                \textbf{1}   & Sum of an array 					& {[}1,2,3{]},add,0     		& 6                					& 6             		& Yes     \\ \hline
+                  2[i]   & Sum bad array	& compact( {[}1,2,3,""{]}, add,0)      		& 5            			& -                		& No     \\ \hline
+            \end{tabular}
+        \end{table}
 
 		\hypertarget{header-n472}{%
 		\subparagraph{10. Function:}\label{header-n472}}
 		
 		slice.js
-		
-		\hypertarget{header-n474}{%
-		\subparagraph{Tests:}\label{header-n474}}
-		
-		\begin{itemize}
-		\item
-		Unit - slice
-		
-		\begin{itemize}
-			\item
-			\underline{End of the array}
-			\item
-			From between of the array
-		\end{itemize}
-		\end{itemize}
-		
-		\hypertarget{header-n487}{%
-		\subparagraph{Result:}\label{header-n487}}
+	
 		
 		All unit tests passed without problems.
 
-
+\begin{table}[h!]
+           \begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+                \hline
+                Num & Test case        							& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+                \textbf{1}   & Slice start	& {[}1, 2, 3, 4{]} , 2     		& {[}3, 4{]}               			& {[}3, 4{]}                 		& Yes     \\ \hline
+                  2   & Middle of the array	& {[}1, 2, 3, 4, 5, 6{]} , 1,5     		& {[}2.3.4.5{]}               			& {[}2.3.4.5{]}                		& Yes     \\ \hline
+            \end{tabular}
+        \end{table}
+        
 
 		\hypertarget{header-n515}{%
 		\subparagraph{11. Function:}\label{header-n515}}
 		
 		toNumber.js
 		
-		\hypertarget{header-n517}{%
-		\subparagraph{Tests:}\label{header-n517}}
+
 		
-		\begin{itemize}
-		\item
-		Unit - to number
-		
-		\begin{itemize}
-			\item
-			\underline{when value is string}
-			\item
-			when value is infinity
-			\item
-			when value is decimal
-			\item
-			when value is negative integer
-		\end{itemize}
-		\end{itemize}
+	
 		
 		\hypertarget{header-n526}{%
 		\subparagraph{Result:}\label{header-n526}}
 		
 		All unit tests passed without problems.
 
+    \begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        					& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		\textbf{1}   & modify string to number 			& '3.2'     					& 3.2               				& 3.2             		& Yes     \\ \hline
+			2   & "Value is infinity 			& infinity     					& infinity               				& infinity             		& Yes     \\ \hline
+				3   & Value is decimal 			& 500.2     					& 500.2               				& 500.2             		& Yes     \\ \hline
+					4   & Value is negative integer			& -73    					& -73               				& -73             		& Yes     \\ \hline
+	
+	\end{tabular}
+\end{table}
 
-
+\newpage
 		\hypertarget{header-n558}{%
 		\subparagraph{12. Function:}\label{header-n558}}
 		
 		toString.js
 		
-		\hypertarget{header-n560}{%
-		\subparagraph{Tests:}\label{header-n560}}
+		\hypertarget{header-n526}{%
+		\subparagraph{Result:}\label{header-n526}}
+        All unit rests passed without problems.
 		
-		\begin{itemize}
-		\item
-		Unit - to string
+		\begin{table}[h!]
+	\begin{tabular}{|l|p{3cm}|p{2cm}|p{2cm}|p{2.5cm}|l|}
+		\hline
+		Num & Test case        										& Test data 					& Expected result 					& Actual result 		& Passed \\ \hline
+		\textbf{1}   & multiple products into a single string 				& {[}p1, p2, p3, p4{]}     		& 'p1, p2, p3, p4'                	& 'p1, p2, p3, p4'                		& Yes     \\ \hline
+	2       & When value is negative zero 			             	& {-0}     	                 	& "-0"                          	&     "-0"         		& Yes     \\ \hline
+		3       & String: Slice of objects 			             	& {toString( get( slice([{ 'a':1 }, { 'b':2 }], 0, 1)[0], 'a') ) )}     	                 	& "1"                          	&     "1"         		& Yes     \\ \hline
+	
+	\end{tabular}
+\end{table}
+
 		
-		\begin{itemize}
-			\item
-			\underline{when value is array}
-			\item
-			when value is negative zero
-		\end{itemize}
-		\item
-		Integration
 		
-		\begin{itemize}
-			\item
-			String: slice of objects
-		\end{itemize}
-		\end{itemize}
-		
-		\hypertarget{header-n573}{%
-		\subparagraph{Result:}\label{header-n573}}
-		
-		All unit tests passed without problems.
 
 \newpage
 
 \section{Findings and conclusions}
-Overall unit tests went pretty well when integration testing was a bit rough because of failure in compact.js function. We noticed that it was easy to test more deeply all functions and that is very noticeable in the number of tests compared to the original plan. Also TravisCI and Coveralls together helped a lot because it was so much easier to write new tests when you knew what parts of the function were not tested yet. In addition, it was great to see how easy it was to setup pipeline which told after certain amount of time was the build succesful and whether the results improved in any way. In the future, we are sure that we will continue to use Travis and Coveralls to get all data out of our code. 
+
+Most of the unit- and integration tests were passed without any problems. The only bug found was with compact.js. 
+The module functionality violates function description, and thus usage should be avoided untill a patch is provided.
+
+\vspace{5mm}
+
+Some test cases were skipped, such as "Falsy list compact" in map.js. These test cases were skipped because of the bug in compact.js mentioned earlier. 
+
+\vspace{5mm}
+
+The biggest problem the tested library has, in our opinion, was the inconsistency of edge case descriptions. Some functions 
+would report results as undefined or null, while some would result in a crash due to internal errors. Extra care would have to be taken when using this library during edge case usage.
+
+\vspace{5mm}
+
+In the end, a Coveralls reported a 73\% test coverage for the library. We consider this a sufficient coverage, considering that a significant portion of the library was left untested, due to the reasons described in the previous document. 
+
+\vspace{5mm}
+
+That being said, nothing can be fully tested, and a complete reliance that a software is bug free should be avoided. Considering this, new tests are always welcome.
+
+
+
 
 % Kirjallisuusviitteet ladataan referenssit.bib tiedostosta ja lohdeluettelo luodaan.
 
@@ -488,11 +444,11 @@ Overall unit tests went pretty well when integration testing was a bit rough bec
 
 Priority table \ref{priorityTable}
 
-	\begin{table}[h]\caption{Priority}\label{priorityTable}
+	\begin{table}[ht]\caption{Priority}\label{priorityTable}
 	    \centering
 	    \begin{tabular}{l|c|l}
 	    \textbf{ Module Name}  & \textbf{Importance Rating} & \textbf{Reason}                                \\ \hline
-	    add          & 4                 & Adding prices                         \\  \hline
+	    add          & 4                 & Adding prices                         \\ \hline
 	    at           & 1                 & Not needed                            \\ \hline
 	    camelCase    & 1                 & Not needed                            \\ \hline
 	    capitalize   & 3                 & String manipulation                   \\ \hline
@@ -537,8 +493,22 @@ Priority table \ref{priorityTable}
 	    words        & 1                 & Not needed                           
 	    \end{tabular}
     \end{table}
+    
+Link to github document: \href{https://github.com/Kujanenj/SoftwareTesting}{https://github.com/Kujanenj/SoftwareTesting}
+
+
+    
 \end{document}
-       
+
+
+
+
+// END
+
+
+
+
+
 \begin{comment} 
 Here can be found all the test cases in a listed form, divided into sections based on the module tested. During testing new test cases can be written even if they are not listed in these tables. 
 \\
@@ -595,6 +565,7 @@ Here can be found all the test cases in a listed form, divided into sections bas
 		1   & similar actions for array nodes 	& {[}product1, product2{]}, capitalize     		& {[}Product1, Product2{]}          & -             		& No     \\ \hline
 	\end{tabular}
 \end{table}
+
 \textbf{Function:} slice.js
 
 \begin{table}[h!]
